@@ -1,19 +1,20 @@
-# Dataset Metadata
+# Dataset metadata
 
-## 1. Dataset Identification
+## 1. Dataset identification
 
 Title: UAV Multispectral Vegetation Indices Dataset – Gembloux, Belgium (2026)
 
 Creators:
+
 - Apolline De Prins
 - Laura Damien
 - Luc Ntede Aneque
 - Danny Tiban Diaz
 
-Raw image acquisition: 1/01/2026
+Raw image acquisition: 01/04/2026  
 Processing period: 08/01/2026–10/01/2026  
 Processing location: UCLouvain laboratory  
-Processing description: Raw UAV multispectral images were processed into GeoTIFF `.tif` raster outputs during laboratory sessions.
+Processing description: Raw UAV multispectral images were processed in Pix4Dmapper into GeoTIFF `.tif` raster outputs during laboratory sessions.
 
 Institution: UCLouvain – School of Geography  
 Field campaign: UAV multispectral survey, agricultural parcel, Gembloux  
@@ -22,14 +23,26 @@ Version: 1.0
 
 ---
 
-## 2. Content Description
+## 2. Data access
+
+The full dataset is not stored directly in the GitHub repository because the raster files and ZIP archives are too large.
+
+The complete dataset is available through the following UCLouvain SharePoint folder:
+
+[External data folder – SharePoint](https://uclouvain-my.sharepoint.com/:f:/g/personal/apolline_deprins_student_uclouvain_be/IgCOXPnhTRCfQ6VD2Pzz8Qb2ARLBRLRo8t9VXJMu_YypXGc?e=D3eJrA)
+
+Users should download the external data from this folder before reproducing the analysis.
+
+---
+
+## 3. Content description
 
 This dataset contains results from the processing of multispectral images acquired by drone over an agricultural parcel located in Gembloux, Belgium.
 
 The dataset includes:
 
 - Spectral bands exported in `.tif` format
-- Vegetation indices calculated in `.tif` format
+- Vegetation indices calculated directly in Pix4Dmapper and exported in `.tif` format
 - Final images exported in `.png` format
 - Outputs from two multispectral sensors:
   - DJI Mavic 3 Multispectral
@@ -41,11 +54,11 @@ The vegetation indices produced are:
 - NDWI: Normalized Difference Water Index
 - NDRE: Normalized Difference Red Edge Index
 
-These indices are used to assess vegetation density, water status, and variations in chlorophyll content or vegetation stress.
+These indices were calculated directly in Pix4Dmapper during the processing workflow. The exported spectral bands are included so that the indices can also be recalculated independently if needed.
 
 ---
 
-## 3. Data Collection Methodology
+## 4. Data collection methodology
 
 Method: Drone-based multispectral image acquisition  
 Collection location: Gembloux, Belgium  
@@ -58,24 +71,29 @@ Capture interval: 2 seconds
 Weather conditions: Clear and calm conditions  
 Positioning system: GPS, IMU, RTK  
 RTK correction: Wallonia correction network  
-Ground control points: available for Altum-PT 
+Ground control points: available for Altum-PT  
 
 Sensors used:
 
-1. DJI Mavic 3 Multispectral  
-2. MicaSense Altum-PT  
+1. DJI Mavic 3 Multispectral
+2. MicaSense Altum-PT
 
 For the MicaSense Altum-PT, radiometric calibration was performed using a reflectance panel and the DLS sensor.
 
 For the DJI Mavic 3 Multispectral, processing was carried out without reflectance panel calibration.
 
-Collection period: 1/04/2026 
+Collection period: 01/04/2026
 
 ---
 
-## 4. File Structure
+## 5. File structure
 
-### Main Folder
+Due to file size limitations, the complete `Data/` folder is hosted externally in the UCLouvain SharePoint folder rather than directly in the GitHub repository.
+
+External data folder:  
+[UCLouvain SharePoint data folder](https://uclouvain-my.sharepoint.com/:f:/g/personal/apolline_deprins_student_uclouvain_be/IgCOXPnhTRCfQ6VD2Pzz8Qb2ARLBRLRo8t9VXJMu_YypXGc?e=D3eJrA)
+
+### Main folder
 
 `Data/`
 
@@ -83,18 +101,18 @@ This folder contains the results of the multispectral image processing.
 
 ---
 
-### DJI Mavic 3 Multispectral Data
+### DJI Mavic 3 Multispectral data
 
 Folder: `Data/DJI_Analysis/`
 
-#### Spectral Bands
+#### Spectral bands
 
 Folder: `Data/DJI_Analysis/01_Bands/`  
 Format: GeoTIFF  
 Extension: `.tif`  
-Encoding: xxx  
-Coordinate system: xxx  
-Spatial resolution: xxx  
+Encoding: GeoTIFF raster  
+Coordinate system: ETRS89 / Belgian Lambert 2008  
+Spatial resolution: 3.18 cm/pixel  
 
 Files:
 
@@ -104,9 +122,9 @@ Files:
 - `RED EDGE - Red Edge Band.tif`
 
 Description:  
-Spectral bands processed and exported after photogrammetric processing in Pix4Dmapper.
+Spectral bands processed and exported after photogrammetric processing in Pix4Dmapper. These bands document the inputs used for the vegetation indices and can be used to recalculate the indices if needed.
 
-#### Vegetation Indices
+#### Vegetation indices
 
 Folder: `Data/DJI_Analysis/02_Indices/`  
 Format: GeoTIFF  
@@ -119,9 +137,9 @@ Files:
 - `NDWI - Normalized Difference Water Index.tif`
 
 Description:  
-Vegetation indices calculated from the Green, Red, Red Edge and NIR spectral bands.
+Vegetation indices calculated directly in Pix4Dmapper from the Green, Red, Red Edge and NIR spectral bands.
 
-#### Final Images
+#### Final images
 
 Folder: `Data/DJI_Analysis/03_Images/`  
 Format: PNG  
@@ -138,18 +156,18 @@ Final images used for visualization, interpretation and reporting.
 
 ---
 
-### MicaSense Altum-PT Data
+### MicaSense Altum-PT data
 
 Folder: `Data/Altum_Analysis/`
 
-#### Spectral Bands
+#### Spectral bands
 
 Folder: `Data/Altum_Analysis/01_Bands/`  
 Format: GeoTIFF  
 Extension: `.tif`  
-Encoding: xxx  
-Coordinate system: xxx  
-Spatial resolution: xxx  
+Encoding: GeoTIFF raster  
+Coordinate system: ETRS89 / Belgian Lambert 2008  
+Spatial resolution: 3.51 cm/pixel  
 
 Files:
 
@@ -159,9 +177,9 @@ Files:
 - `RED EDGE - Red Edge Band.tif`
 
 Description:  
-Spectral bands processed and exported after photogrammetric processing in Pix4Dmapper.
+Spectral bands processed and exported after photogrammetric processing in Pix4Dmapper. These bands document the inputs used for the vegetation indices and can be used to recalculate the indices if needed.
 
-#### Vegetation Indices
+#### Vegetation indices
 
 Folder: `Data/Altum_Analysis/02_Indices/`  
 Format: GeoTIFF  
@@ -174,9 +192,9 @@ Files:
 - `NDWI - Normalized Difference Water Index.tif`
 
 Description:  
-Vegetation indices calculated from the Green, Red, Red Edge and NIR spectral bands.
+Vegetation indices calculated directly in Pix4Dmapper from the Green, Red, Red Edge and NIR spectral bands.
 
-#### Final Images
+#### Final images
 
 Folder: `Data/Altum_Analysis/03_Images/`  
 Format: PNG  
@@ -193,7 +211,7 @@ Final images used for visualization, interpretation and reporting.
 
 ---
 
-## 5. Data Types
+## 6. Data types
 
 - Multispectral raster data
 - Derived raster data
@@ -203,7 +221,7 @@ Final images used for visualization, interpretation and reporting.
 
 ---
 
-## 6. Spectral Bands Used
+## 7. Spectral bands used
 
 The bands used to calculate the indices are:
 
@@ -212,26 +230,14 @@ The bands used to calculate the indices are:
 - Red Edge
 - Near-Infrared, NIR
 
-The DJI Mavic 3 Multispectral sensor includes the following bands:
-
-- Green: 560 ± 16 nm
-- Red: 650 ± 16 nm
-- Red Edge: 730 ± 16 nm
-- NIR: 860 ± 26 nm
-
-The MicaSense Altum-PT sensor includes the following bands:
-
-- Blue: 475 nm
-- Green: 560 nm
-- Red: 668 nm
-- Red Edge: 717 nm
-- NIR: 842 nm
 
 In this project, only the bands common to both sensors were used for comparison.
 
 ---
 
-## 7. Vegetation Indices
+## 8. Vegetation indices
+
+The vegetation indices were calculated directly in Pix4Dmapper during the processing workflow. The formulas are provided to document the calculation method and to allow users to recalculate the indices from the exported spectral bands if needed.
 
 ### NDVI
 
@@ -240,8 +246,6 @@ Formula:
 
 `NDVI = (NIR - Red) / (NIR + Red)`
 
-Description:  
-NDVI is used to estimate vegetation density and general vegetation condition. High values generally indicate dense and healthy vegetation.
 
 ---
 
@@ -252,8 +256,6 @@ Formula:
 
 `NDWI = (Green - NIR) / (Green + NIR)`
 
-Description:  
-NDWI is used to identify differences related to water, soil moisture or vegetation water content.
 
 ---
 
@@ -264,12 +266,10 @@ Formula:
 
 `NDRE = (NIR - Red Edge) / (NIR + Red Edge)`
 
-Description:  
-NDRE is used to detect differences related to chlorophyll content, vegetation stress or plant nutrient status.
 
 ---
 
-## 8. Processing Steps
+## 9. Processing steps
 
 The processing workflow included:
 
@@ -286,13 +286,13 @@ The processing workflow included:
 - Generating the DSM
 - Producing orthomosaics
 - Exporting spectral bands
-- Calculating NDVI, NDWI and NDRE indices
-- Exporting final maps in `.tif` format
+- Calculating NDVI, NDWI and NDRE directly in Pix4Dmapper
+- Exporting vegetation index rasters in `.tif` format
 - Exporting visualization images in `.png` format
 
 ---
 
-## 9. Software Used
+## 10. Software used
 
 Software used:
 
@@ -305,10 +305,9 @@ Compatible software:
 - R
 - Python
 
-
 ---
 
-## 10. Interoperability
+## 11. Interoperability
 
 Open or widely used formats:
 
@@ -317,11 +316,26 @@ Open or widely used formats:
 - Markdown `.md`
 - CSV `.csv`
 
-The raster files can be opened in GIS software such as QGIS or ArcGIS.
+The raster files can be opened in GIS software such ArcGIS.
+
+The vegetation indices can also be recalculated in GIS or programming environments such as QGIS, R or Python using the exported spectral bands.
 
 ---
 
-## 11. Data Sensitivity and Protection
+## 12. Data availability
+
+The GitHub repository provides the documentation, metadata, license and project structure.
+
+The complete raster dataset, including spectral bands, Pix4Dmapper vegetation index outputs and visualization images, is stored externally in a UCLouvain SharePoint folder due to file size limitations.
+
+External data folder:  
+[UCLouvain SharePoint data folder](https://uclouvain-my.sharepoint.com/:f:/g/personal/apolline_deprins_student_uclouvain_be/IgCOXPnhTRCfQ6VD2Pzz8Qb2ARLBRLRo8t9VXJMu_YypXGc?e=D3eJrA)
+
+Users must download the external data before reproducing the analyses.
+
+---
+
+## 13. Data sensitivity and protection
 
 No personally identifiable data are included.
 
@@ -329,21 +343,8 @@ The data concern an agricultural parcel and environmental variables derived from
 
 ---
 
-## 12. Dataset Limitations
 
-The main limitations are:
-
-- No reflectance panel radiometric calibration for the DJI Mavic 3 Multispectral data
-- Possible effects of changing sunlight conditions during the flight
-- Possible artifacts along the edges of the mosaics
-- Technical differences between the sensors
-- Differences in spatial resolution between datasets
-- Uncertainty related to GPS/RTK positioning and ground control points
-- Processing parameters partly dependent on the educational context of the project
-
----
-
-## 13. Reuse
+## 14. Reuse
 
 The data are:
 
@@ -353,16 +354,17 @@ The data are:
 - Organized by output type
 - Reusable in GIS software
 - Suitable for comparing vegetation indices between two multispectral sensors
+- Suitable for recalculating NDVI, NDWI and NDRE from the exported spectral bands if needed
 
 ---
 
-## 14. License
+## 15. License
 
 MIT License
 
 ---
 
-## 15. Scientific Provenance
+## 16. Scientific provenance
 
 Dataset created as part of the course LGEO2250 – Field Measurements in Geography, UCLouvain, academic year 2025–2026.
 
@@ -370,7 +372,7 @@ The data were processed and analysed by students for educational purposes, using
 
 ---
 
-## 16. Recommended Citation
+## 17. Recommended citation
 
 De Prins A., Damien L., Ntede Aneque L., Tiban Diaz D. (2026).  
 UAV Multispectral Vegetation Indices Dataset – Gembloux. UCLouvain.

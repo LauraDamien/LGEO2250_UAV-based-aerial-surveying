@@ -14,24 +14,34 @@ Institution: UCLouvain – Earth and Life Institute
 
 ## DESCRIPTION
 
-This repository contains the processed data and results of a drone-based multispectral analysis project carried out on an agricultural parcel in Gembloux, Belgium.
+This repository contains the documentation and metadata of a drone-based multispectral analysis project carried out on an agricultural parcel in Gembloux, Belgium.
 
-Two sensors were compared:
+The project compares vegetation indices produced from two multispectral sensors:
 
 - DJI Mavic 3 Multispectral
 - MicaSense Altum-PT
 
-The data were used to produce and compare three vegetation indices:
+The vegetation indices compared are:
 
 - NDVI
 - NDWI
 - NDRE
 
+The indices were calculated directly in Pix4Dmapper. The exported spectral bands are also provided in the external dataset so that the indices can be recalculated if needed.
+
 ### Research question
 
-How do vegetation indices calculated from UAV multispectral data vary depending on the sensor used, and what can they reveal about vegetation conditions in the study area?
+How do vegetation indices calculated from UAV multispectral data vary depending on the sensor used?
+
+## DATA ACCESS
+
+Because the ZIP files and raster datasets were too large to upload directly to GitHub, the full dataset is stored externally in a UCLouvain SharePoint folder.
+
+[UCLouvain SharePoint data folder](https://uclouvain-my.sharepoint.com/:f:/g/personal/apolline_deprins_student_uclouvain_be/IgCOXPnhTRCfQ6VD2Pzz8Qb2ARLBRLRo8t9VXJMu_YypXGc?e=D3eJrA)
 
 ## FILE STRUCTURE
+
+The external `Data/` folder contains:
 
 `Data/DJI_Analysis/`  
 Results from the DJI Mavic 3 Multispectral sensor.
@@ -39,30 +49,22 @@ Results from the DJI Mavic 3 Multispectral sensor.
 `Data/Altum_Analysis/`  
 Results from the MicaSense Altum-PT sensor.
 
-Each folder contains:
+Each sensor folder contains:
 
 `01_Bands/`  
-Spectral bands exported in `.tif` format.
+Exported spectral bands in `.tif` format.
 
 `02_Indices/`  
-NDVI, NDWI and NDRE indices calculated in `.tif` format.
+NDVI, NDWI and NDRE index rasters in `.tif` format.
 
 `03_Images/`  
-Final images in `.png` format used for visualization and reporting.
-
-`metadata/`  
-Metadata, data dictionary and license.
+Final visualization images in `.png` format.
 
 ## REPRODUCING THE ANALYSES
 
-The analyses can be reproduced by:
+To reproduce the analyses, download the data from the SharePoint folder, open the Pix4Dmapper project or exported spectral bands, and generate or recalculate the NDVI, NDWI and NDRE outputs.
 
-1. Loading the spectral bands contained in the `01_Bands/` folders
-2. Calculating the NDVI, NDWI and NDRE indices
-3. Exporting the raster outputs to the `02_Indices/` folders
-4. Generating the final images in the `03_Images/` folders
-
-The exact formulas, methodological details and dataset limitations are available in:
+More detailed methodological information, formulas and dataset limitations are available in:
 
 `metadata/metadata.md`
 
